@@ -33,6 +33,11 @@ pipeline {
                 }
                         }
                                }     
+        stage('Docker Push Image') {
+            steps {
+                sh 'docker push nikhillara1989/finance_project:1.0'
+            }
+               }
 }
 }
     
