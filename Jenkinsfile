@@ -26,6 +26,20 @@ pipeline {
                 sh 'docker build -t nikhillara1989/finance_project:1.0 .'
             }
                }
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-login', passwordVariable: 'dockerpassword', usernameVariable: 'dockerlogin')]) {
+    // some block
+                }
+                        }
+                               }
+        stage('Docker Push Image') {
+            steps {
+                sh 'docker push nikhillara1989/finance_project:1.0 .'
+            }
+               }
+        
+        
 }
 }
     
