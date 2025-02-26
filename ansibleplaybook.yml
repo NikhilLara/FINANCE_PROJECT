@@ -3,4 +3,15 @@
   become: true
   connection: ssh
   task:
-  -
+  - name: Updating the Ec2 Instance
+    command: sudo apt update
+  - name: Install Docker
+    command: sudo apt install docker.io -y
+    become: yes
+    become_user: root
+  - name: Start Docker Service
+    command: sudo systemctl start docker
+    become: yes
+    become_user: root
+  - name: Deploy Docker Image Container
+    command: docker run -itd -p 8084-8081 nikhillara1989/finance_project:1.0
