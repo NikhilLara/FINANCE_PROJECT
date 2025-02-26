@@ -5,7 +5,7 @@ resource "aws_instance" "banking-server" {
   vpc_security_group_id = ["sg-075157b3f9c88e507"]
 connection {
   type            = "ssh"
-  user            = "ec2-user"
+  user            = "ubuntu"
   private_key     = file("./keypair1.pem")
   host            = self.public_ip
   }
