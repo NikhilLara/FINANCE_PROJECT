@@ -1,1 +1,6 @@
-
+- name: Docker Configure in Ec2 Instance
+  host: all
+  become: true
+  connection: ssh
+  task:
+  -
